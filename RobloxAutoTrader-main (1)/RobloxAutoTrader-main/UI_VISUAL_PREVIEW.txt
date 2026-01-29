@@ -1,0 +1,273 @@
+================================================================================
+                      DOGGO TRADER UI - VISUAL PREVIEW
+================================================================================
+
+This is what your UI will look like when you run python main_ui.py or python ui_demo.py
+
+
+╔══════════════════════════════════════════════════════════════════════╗
+║  ██████╗  ██████╗  ██████╗  ██████╗  ██████╗     ████████╗██████╗   ║
+║  ██╔══██╗██╔═══██╗██╔════╝ ██╔════╝ ██╔═══██╗    ╚══██╔══╝██╔══██╗  ║
+║  ██║  ██║██║   ██║██║  ███╗██║  ███╗██║   ██║       ██║   ██████╔╝  ║
+║  ██║  ██║██║   ██║██║   ██║██║   ██║██║   ██║       ██║   ██╔══██╗  ║
+║  ██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝       ██║   ██║  ██║  ║
+║  ╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝        ╚═╝   ╚═╝  ╚═╝  ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────┐
+│  ● SCANNING FOR TRADERS                       Session: 2h 15m        │
+└──────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────┬────────────────────────────────────────────────┐
+│ ▼ LIFETIME          │ ▼ LIVE ACTIVITY LOG                            │
+│   STATISTICS        │                                                 │
+│                     │                                                 │
+│ ┌─ TRADES ─         │ [14:23:15] [SUCCESS] Trade sent to user 123456│
+│ │ Sent:       42    │ [14:23:17] [INFO   ] Scanning for traders...  │
+│ │ Accepted:   12    │ [14:23:20] [SUCCESS] Trade accepted! +450 RAP │
+│ │ Declined:   8     │ [14:23:25] [WARNING] Rate limit detected      │
+│ │ Countered:  3     │ [14:23:30] [INFO   ] Waiting 10 seconds...    │
+│ │ Cancelled:  1     │ [14:23:40] [INFO   ] Continuing scan...       │
+│                     │ [14:23:42] [INFO   ] Found 15 potential users │
+│ ┌─ PROFIT ─         │ [14:23:45] [INFO   ] Fetching inventory...    │
+│ │ Overall:    45,230│ [14:23:48] [SUCCESS] Inventory loaded (47)    │
+│ │ RAP:        38,640│ [14:23:50] [INFO   ] Generating trades...     │
+│ │ Value:      12,500│ [14:23:52] [SUCCESS] Found 3 valid trades     │
+│                     │ [14:23:55] [INFO   ] Selecting best trade...  │
+│ ┌─ SYSTEM ─         │ [14:23:57] [INFO   ] Sending trade...         │
+│ │ Errors:     0     │ [14:24:00] [SUCCESS] Trade sent successfully  │
+│ │ Uptime:     24h   │ [14:24:05] [INFO   ] Scanning for traders...  │
+│ │ Sessions:   5     │ [14:24:10] [INFO   ] Checking outbounds...    │
+│                     │ [14:24:12] [SUCCESS] All outbounds valid       │
+│                     │ [14:24:15] [INFO   ] Checking completeds...   │
+│                     │ [14:24:18] [SUCCESS] 1 new completed trade!   │
+│                     │ [14:24:20] [SUCCESS] Profit: +680 RAP         │
+└─────────────────────┴────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────┐
+│  [ CLEAR LOGS ]                    v1.0 BETA | by shibahex           │
+└──────────────────────────────────────────────────────────────────────┘
+
+
+================================================================================
+                              COLOR SCHEME
+================================================================================
+
+Background:       Deep Purple (#1a0a2e) - Dark, rich background
+Primary Text:     Neon Purple (#e94cff) - Bright, readable
+Secondary Text:   Light Purple (#b968ff) - Subtle info
+Dim Text:         Gray Purple (#7d5ba6) - Timestamps, less important
+
+SUCCESS Logs:     Neon Green  (#39ff14) - Trade sent, accepted, etc.
+WARNING Logs:     Orange      (#ffaa00) - Rate limits, minor issues
+ERROR Logs:       Pink-Red    (#ff0055) - Errors, failures
+INFO Logs:        Purple      (#b968ff) - General information
+DEBUG Logs:       Dim Gray    (#7d5ba6) - Debug details
+
+Accent:           Magenta     (#ff00ff) - Headers, borders
+Borders:          Purple      (#7d3fff) - Separators
+
+Status Indicators:
+  IDLE:           Gray Purple (#7d5ba6) - ○
+  ACTIVE:         Neon Green  (#39ff14) - ●
+  SCANNING:       Neon Green  (#39ff14) - ◐
+  SENDING:        Neon Green  (#39ff14) - ►
+  ERROR:          Pink-Red    (#ff0055) - ✗
+  SUCCESS:        Neon Green  (#39ff14) - ✓
+  WAITING:        Orange      (#ffaa00) - ◌
+
+
+================================================================================
+                              UI ELEMENTS
+================================================================================
+
+┌─ ASCII HEADER ────────────────────────────────────────────────────────┐
+│  Large ASCII art logo "DOGGO TR" in block letters                     │
+│  Color: Bright Magenta (#ff00ff)                                      │
+│  Font: Consolas 8pt                                                   │
+└───────────────────────────────────────────────────────────────────────┘
+
+┌─ STATUS BAR ──────────────────────────────────────────────────────────┐
+│  ● [Status Text]                           Session: [Uptime]          │
+│  │   └─ Changes color based on activity                               │
+│  │                                                                     │
+│  └─ Status Icon (animated color)                                      │
+│      ○ = Idle (gray)                                                  │
+│      ● = Active (green)                                               │
+│      ◐ = Scanning (green)                                             │
+│      ► = Sending (green)                                              │
+│      ✗ = Error (red)                                                  │
+└───────────────────────────────────────────────────────────────────────┘
+
+┌─ STATISTICS PANEL ────────────────────────────────────────────────────┐
+│  ▼ LIFETIME STATISTICS                                                │
+│                                                                        │
+│  Organized into 3 sections:                                           │
+│                                                                        │
+│  ┌─ TRADES ─          Stats related to trading                        │
+│  │ Sent:      [###]   Number format with commas                       │
+│  │ Accepted:  [###]   Green numbers (#39ff14)                         │
+│  │ Declined:  [###]                                                   │
+│  │ Countered: [###]                                                   │
+│  │ Cancelled: [###]                                                   │
+│                                                                        │
+│  ─────────────────    Separator line (purple)                         │
+│                                                                        │
+│  ┌─ PROFIT ─           Profit statistics                              │
+│  │ Overall:   [###]    Combined profit                                │
+│  │ RAP:       [###]    RAP profit                                     │
+│  │ Value:     [###]    Value profit                                   │
+│                                                                        │
+│  ─────────────────    Separator line (purple)                         │
+│                                                                        │
+│  ┌─ SYSTEM ─           System stats                                   │
+│  │ Errors:    [###]    Error count                                    │
+│  │ Uptime:    [##h ##m] Formatted time                                │
+│  │ Sessions:  [###]    Session count                                  │
+└───────────────────────────────────────────────────────────────────────┘
+
+┌─ LOG VIEWER ──────────────────────────────────────────────────────────┐
+│  ▼ LIVE ACTIVITY LOG                                                  │
+│                                                                        │
+│  [HH:MM:SS] [SEVERITY] Message text here                              │
+│  │           │           └─ Main message (color varies)               │
+│  │           └─ Severity tag (color varies)                           │
+│  └─ Timestamp (dim gray)                                              │
+│                                                                        │
+│  • Auto-scrolls to bottom                                             │
+│  • Max 1000 lines (auto-trims)                                        │
+│  • Color-coded by severity                                            │
+│  • Monospace font (Consolas)                                          │
+│  • Black background with purple tint                                  │
+└───────────────────────────────────────────────────────────────────────┘
+
+┌─ CONTROL BAR ─────────────────────────────────────────────────────────┐
+│  [ CLEAR LOGS ]                    v1.0 BETA | by shibahex            │
+│   └─ Button to clear log viewer                                       │
+└───────────────────────────────────────────────────────────────────────┘
+
+
+================================================================================
+                              WINDOW PROPERTIES
+================================================================================
+
+Size:          1000x700 pixels (resizable)
+Background:    Deep Purple (#1a0a2e)
+Font:          Consolas (monospace)
+  - Regular:   10pt
+  - Bold:      10pt bold
+  - Large:     12pt bold
+  - Small:     8pt
+  - Title:     16pt bold
+
+Layout:
+  - Header:    ASCII art (fixed height)
+  - Status:    40px bar (fixed height)
+  - Content:   Flexible height
+    - Stats:   30% width (300px, fixed)
+    - Logs:    70% width (flexible)
+  - Controls:  40px bar (fixed height)
+
+Padding:       10px throughout
+Borders:       2px purple (#7d3fff)
+Scrollbars:    Native OS scrollbars
+
+
+================================================================================
+                              BEHAVIOR
+================================================================================
+
+• Window opens centered on screen
+• Logs update in real-time (1 second refresh)
+• Statistics update immediately when changed
+• Status bar updates immediately
+• Session uptime updates every second
+• Auto-scroll keeps latest log visible
+• Clear button clears all logs instantly
+• Window close prompts "Stop bot and exit?"
+• All updates are thread-safe
+• UI never freezes or blocks
+
+
+================================================================================
+                              ANIMATIONS
+================================================================================
+
+• Status icon changes color when status changes
+• New log lines appear with smooth scroll
+• Statistics numbers update instantly
+• Session timer increments every second
+• No distracting animations - clean and professional
+
+
+================================================================================
+                         RESPONSIVE BEHAVIOR
+================================================================================
+
+Minimum Size:  800x600
+Maximum Size:  Unlimited (scales well)
+
+Resizing:
+  - Stats panel stays fixed width (300px)
+  - Log viewer expands to fill remaining space
+  - Header and footer stay fixed height
+  - All text remains readable
+
+Scaling:
+  - Font sizes remain constant
+  - Layout adjusts to window size
+  - Scrollbars appear when needed
+  - No text cutoff or overlap
+
+
+================================================================================
+                              USER EXPERIENCE
+================================================================================
+
+✓ Clean, uncluttered interface
+✓ High contrast for readability
+✓ Intuitive layout (stats left, logs right)
+✓ Color-coded information
+✓ Real-time updates without lag
+✓ Professional 8-bit aesthetic
+✓ Easy to read monospace font
+✓ Clear visual hierarchy
+✓ Smooth, responsive performance
+✓ Native Windows look and feel
+
+
+================================================================================
+                           KEYBOARD SHORTCUTS
+================================================================================
+
+Currently:
+  • None (all mouse-driven)
+
+Future Potential:
+  • Ctrl+L: Clear logs
+  • Ctrl+Q: Quit
+  • Ctrl+S: Export stats
+  • Ctrl+T: Toggle theme
+
+
+================================================================================
+                              ACCESSIBILITY
+================================================================================
+
+• High contrast color scheme
+• Large, readable fonts
+• Clear visual indicators
+• Color-blind friendly (status icons have shapes)
+• No reliance on color alone for information
+• Resizable window
+• Standard Windows controls
+
+
+================================================================================
+
+That's what you'll see when you run the UI!
+
+Launch it now: python ui_demo.py (for demo)
+              python main_ui.py (for real bot)
+
+================================================================================
